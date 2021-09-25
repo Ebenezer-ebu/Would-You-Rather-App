@@ -59,7 +59,7 @@ class Nav extends React.Component {
             </li>
             {auth}
           </ul>
-          <hr />
+          <hr className="nav-divider" />
         </div>
       </nav>
     );

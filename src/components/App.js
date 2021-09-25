@@ -8,6 +8,7 @@ import Board from "./LeaderBoard";
 import NewQuestion from "./NewQuestion";
 import QuestionPage from "./QuestionPage";
 import NotFound from "./NotFound";
+import Nav from "./Nav";
 
 class App extends Component {
   componentDidMount() {
@@ -16,6 +17,7 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <Nav />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/signin" component={Signin} />

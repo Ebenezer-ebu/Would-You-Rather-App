@@ -2,8 +2,7 @@ import React from "react";
 import Select from "react-select";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import Nav from "./Nav";
-import logo from "../images/react-redux.jpg";
+import logo from "../images/react-redux.svg";
 import { setAuthedUser } from "../actions/authedUser";
 
 class Signin extends React.Component {
@@ -32,7 +31,6 @@ class Signin extends React.Component {
     }
     return (
       <>
-        <Nav />
         <div className="container">
           <div className="welcome">
             <h3>Welcome To The Would You Rather App</h3>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Nav from "./Nav";
 import { answeredQues } from "../actions/questions";
 import NotFound from "./NotFound";
 
@@ -40,7 +39,6 @@ class QuestionPage extends Component {
     let answers = Object.keys(selectedOption.answers);
     return (
       <>
-        <Nav />
         <div className="container">
           {!answers.includes(id) ? (
             <>

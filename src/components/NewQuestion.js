@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import Nav from "./Nav";
 import { newQuestion } from "../actions/questions";
 import NotFound from "./NotFound";
 
@@ -33,7 +32,6 @@ class NewQuestion extends React.Component {
     }
     return (
       <>
-        <Nav />
         <div className="container">
           <h1>Create Question</h1>
           <hr className="rule" />

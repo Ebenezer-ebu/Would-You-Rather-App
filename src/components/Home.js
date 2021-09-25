@@ -1,38 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
-import Nav from "./Nav";
 import QuestionList from "./QuestionList";
 import NotFound from "./NotFound";
 
 class Home extends React.Component {
   state = {
-    answered: false,
-    activeAnswer: '',
-    unanswered: true,
-    activeUnanswered: 'active',
+    activeTab: "Unanswered",
   };
 
-  handleUnanswered = () => {
+  handleClickTab = (tab) => {
     this.setState(() => ({
-      unanswered: true,
-      activeUnanswered: "active",
-      answered: false,
-      activeAnswer: "",
+      activeTab: tab,
     }));
   };
-  handleAnswered = () => {
-     this.setState(() => ({
-       answered: true,
-       activeAnswer: "active",
-       unanswered: false,
-       activeUnanswered: "",
-     }));
-  };
+
   render() {
+    const labels = ["Unanswered", "Answered"];
     const { authedUser, questions } = this.props;
-    const { answered, unanswered, activeAnswer, activeUnanswered } = this.state;
+    const { activeTab } = this.state;
     if (authedUser === null) {
-      return <NotFound />
+      return <NotFound />;
     }
     const { selectedOption } = authedUser;
     let answer = [];
@@ -40,34 +27,35 @@ class Home extends React.Component {
     Object.keys(questions).forEach((question) => {
       if (Object.keys(selectedOption.answers).includes(question)) {
         answer.push(questions[question]);
-      }
-    });
-    Object.keys(questions).forEach((question) => {
-      if (!Object.keys(selectedOption.answers).includes(question)) {
+      } else {
         unAnswered.push(questions[question]);
       }
     });
 
     answer = answer.sort((a, b) => {
-      return b.timestamp - a.timestamp
+      return b.timestamp - a.timestamp;
     });
 
     unAnswered = unAnswered.sort((a, b) => {
-      return b.timestamp - a.timestamp
+      return b.timestamp - a.timestamp;
     });
 
     return (
-      <>
-        <Nav />
-        <div className="container">
-          <ul className='sub-nav'>
-            <li onClick={this.handleUnanswered} id={activeUnanswered}>Unanswered</li>
-            <li onClick={this.handleAnswered} id={activeAnswer}>Answered</li>
-          </ul>
-          {unanswered && <QuestionList questions={unAnswered} />}
-          {answered && <QuestionList questions={answer} />}
-        </div>
-      </>
+      <div className="container">
+        <ul className="sub-nav">
+          {labels.map((label) => (
+            <li
+              key={label}
+              onClick={() => this.handleClickTab(label)}
+              id={activeTab === label && "active"}
+            >
+              {label}
+            </li>
+          ))}
+        </ul>
+        {activeTab === "Unanswered" && <QuestionList questions={unAnswered} />}
+        {activeTab === "Answered" && <QuestionList questions={answer} />}
+      </div>
     );
   }
 }

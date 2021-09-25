@@ -19,13 +19,13 @@ code {
   margin: 20px auto;
   width: 40%;
   padding: 10px;
-  border: 1px solid black;
+  border: 1px solid #e3e3e3;
   border-radius: 5px;
 }
 
 .logo {
-  width: 100%;
-  background-color: black;
+  width: 300px;
+  height: 300px;
 }
 
 a {
@@ -51,8 +51,11 @@ a {
   padding-left: 0;
 }
 .nav .tag:hover {
+  background-color: #38c5b0;
+}
+
+.tag a:hover {
   color: white;
-  background-color: darkslategrey;
 }
 
 .tag-image {
@@ -74,9 +77,10 @@ li {
   width: 100%;
   height: 35px;
   margin-top: 10px;
-  background-color: darkslategrey;
+  background-color: #38c5b0;
   color: white;
   border-radius: 5px;
+  border: 1px solid #e3e3e3;
 }
 
 .form-control {
@@ -103,7 +107,7 @@ li {
   padding: 0;
 }
 .card-list > li {
-  border: 1px solid black;
+  border: 1px solid #e3e3e3;
   border-radius: 5px;
   margin: 10px 0;
 }
@@ -118,7 +122,7 @@ li {
 }
 .right {
   padding: 20px;
-  border-left: 1px solid black;
+  border-left: 1px solid #e3e3e3;
 }
 .right > p {
   display: block;
@@ -133,19 +137,20 @@ li {
   width: 150px;
   height: 35px;
   margin-top: 5px;
-  color: darkslategrey;
+  color: #38c5b0;
   border-radius: 5px;
   cursor: pointer;
+  border: 1px solid #38c5b0;
 }
 
 .sub-nav li {
-  border: 1px solid black;
+  border: 1px solid #e3e3e3;
   width: 50%;
   cursor: pointer;
 }
 
 .rule {
-  border: 2px solid black;
+  border: 2px solid #e3e3e3;
   width: 100%;
 }
 
@@ -154,14 +159,14 @@ li {
 }
 
 .votes {
-  border-left: 1px solid black;
+  border-left: 1px solid #e3e3e3;
   padding: 10px;
 }
 
 .votes-card {
   width: 14rem;
   height: 7rem;
-  border: 1px solid black;
+  border: 1px solid #e3e3e3;
   border-radius: 5px;
   margin-top: 10px;
   padding: 5px;
@@ -195,14 +200,14 @@ progress::-moz-progress-bar {
 }
 .mid-sec {
   padding: 0 15px;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  border-left: 1px solid #e3e3e3;
+  border-right: 1px solid #e3e3e3;
   width: 60%;
 }
 
 .scorecard {
   margin: 5px;
-  border: 1px solid black;
+  border: 1px solid #e3e3e3;
   padding: 10px;
   width: 10%;
   border-radius: 5px;
@@ -245,6 +250,10 @@ progress::-moz-progress-bar {
 }
 
 #active {
-  background-color: darkslategrey;
+  background-color: #38c5b0;
   color: white;
+}
+
+.nav-divider {
+  border-color: #38c5b0;
 }
