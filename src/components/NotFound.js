@@ -13,7 +13,7 @@ class NotFound extends React.Component {
             textAlign: "center",
           }}
         >
-          <Link to="/signin">Click here to Sign up </Link>
+          <Link to="/">Click here to Sign up </Link>
         </p>
       </div>
     );

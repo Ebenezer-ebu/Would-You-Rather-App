@@ -19,11 +19,11 @@ class App extends Component {
       <Router>
         <Nav />
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/signin" component={Signin} />
+          <Route path="/" exact component={Signin} />
+          <Route path="/home" component={Home} />
           <Route path="/leaderboard" component={Board} />
           <Route path="/add" component={NewQuestion} />
-          <Route path="/question/:id" component={QuestionPage} />
+          <Route path="/questions/:question_id" component={QuestionPage} />
           <Route component={NotFound} />
         </Switch>
       </Router>

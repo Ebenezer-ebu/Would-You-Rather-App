@@ -27,7 +27,7 @@ class Signin extends React.Component {
     const { persons } = this.props;
     const { selectedOption, toHome } = this.state;
     if (toHome) {
-      return <Redirect to="/" />;
+      return <Redirect to="/home" />;
     }
     return (
       <>

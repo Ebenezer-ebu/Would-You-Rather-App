@@ -22,7 +22,7 @@ class Nav extends React.Component {
             />
           </li>
           <li onClick={this.removeUser} className="tag">
-            <NavLink to="/signin" exact activeClassName="active">
+            <NavLink to="/" exact activeClassName="active">
               Log Out
             </NavLink>
           </li>
@@ -35,9 +35,9 @@ class Nav extends React.Component {
           <ul>
             <li
               className="tag"
-              id={window.location.pathname === "/" ? "active" : ""}
+              id={window.location.pathname === "/home" ? "active" : ""}
             >
-              <NavLink to="/" exact activeClassName="active">
+              <NavLink to="/home" exact activeClassName="active">
                 Home
               </NavLink>
             </li>
