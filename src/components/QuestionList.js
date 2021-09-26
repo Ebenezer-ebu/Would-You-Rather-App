@@ -25,7 +25,7 @@ class QuestionList extends Component {
                   <button
                     className="btn-poll"
                     onClick={() => {
-                        this.props.history.push(`/question/${ques.id}`);
+                        this.props.history.push(`/questions/${ques.id}`);
                     }}
                   >
                     View Poll...

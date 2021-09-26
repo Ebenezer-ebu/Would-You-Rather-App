@@ -22,7 +22,7 @@ class NewQuestion extends React.Component {
       optionTwoText: this.state.optionTwoText,
     };
     this.props.dispatch(newQuestion(info));
-    this.props.history.push("/");
+    this.props.history.push("/home");
   }
 
   render() {

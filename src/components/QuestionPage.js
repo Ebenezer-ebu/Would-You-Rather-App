@@ -16,8 +16,8 @@ class QuestionPage extends Component {
     e.preventDefault();
     const info = {
       authedUser: this.props.authedUser.selectedOption.value,
-      qid: this.props.match.params.id,
-      answer: this.state.seleted
+      qid: this.props.match.params.question_id,
+      answer: this.state.seleted,
     };
     this.props.dispatch(
       answeredQues(info)
@@ -29,9 +29,9 @@ class QuestionPage extends Component {
     if (authedUser === null) {
       return <NotFound />;
     }
-    const { id } = this.props.match.params;
-    let oneVotes = questions[id].optionOne.votes.length;
-    let twoVotes = questions[id].optionTwo.votes.length;
+    const { question_id } = this.props.match.params;
+    let oneVotes = questions[question_id].optionOne.votes.length;
+    let twoVotes = questions[question_id].optionTwo.votes.length;
     let total = oneVotes + twoVotes;
     const oneVotesPer = (oneVotes / total) * 100;
     const twoVotesPer = 100 - oneVotesPer;
@@ -40,13 +40,13 @@ class QuestionPage extends Component {
     return (
       <>
         <div className="container">
-          {!answers.includes(id) ? (
+          {!answers.includes(question_id) ? (
             <>
-              <h3>{users[questions[id].author].name} asks</h3>
+              <h3>{users[questions[question_id].author].name} asks</h3>
               <hr className="rule" />
               <form className="content">
                 <img
-                  src={users[questions[id].author].avatarURL}
+                  src={users[questions[question_id].author].avatarURL}
                   className="list-image"
                   alt=""
                 />
@@ -60,7 +60,7 @@ class QuestionPage extends Component {
                         checked={this.state.seleted === "optionOne"}
                         onChange={this.handleOptionChange}
                       />
-                      {questions[id].optionOne.text}?
+                      {questions[question_id].optionOne.text}?
                     </label>
                   </div>
                   <div className="radio">
@@ -71,7 +71,7 @@ class QuestionPage extends Component {
                         checked={this.state.seleted === "optionTwo"}
                         onChange={this.handleOptionChange}
                       />
-                      {questions[id].optionTwo.text}?
+                      {questions[question_id].optionTwo.text}?
                     </label>
                   </div>
                   <button className="btn" onClick={this.handleSubmit}>
@@ -82,12 +82,12 @@ class QuestionPage extends Component {
             </>
           ) : (
             <>
-              <h3>asked by {users[questions[id].author].name}</h3>
+              <h3>asked by {users[questions[question_id].author].name}</h3>
               <hr className="rule" />
               <div className="divide">
                 <div>
                   <img
-                    src={users[questions[id].author].avatarURL}
+                    src={users[questions[question_id].author].avatarURL}
                     className="list-image"
                     alt=""
                   />
@@ -95,7 +95,7 @@ class QuestionPage extends Component {
                 <div className="votes">
                   <h4>Results:</h4>
                   <div className="votes-card">
-                    {questions[id].optionOne.text}?<br />
+                    {questions[question_id].optionOne.text}?<br />
                     <progress
                       max="100"
                       value={oneVotesPer}
@@ -106,7 +106,7 @@ class QuestionPage extends Component {
                     </p>
                   </div>
                   <div className="votes-card">
-                    {questions[id].optionTwo.text}?<br />
+                    {questions[question_id].optionTwo.text}?<br />
                     <progress
                       max="100"
                       value={twoVotesPer}
