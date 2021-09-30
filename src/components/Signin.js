@@ -15,17 +15,29 @@ class Signin extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    const { persons, location } = this.props;
+    const { state } = location;
     const { selectedOption } = this.state;
     if (selectedOption !== null) {
       this.setState(() => ({
         toHome: true,
       }));
       this.props.dispatch(setAuthedUser({ selectedOption }));
+      if (state.from) {
+        this.props.history.push(state.from.page)
+      }
     }
   };
   render() {
-    const { persons } = this.props;
+    const { persons, location } = this.props;
+    console.log(location);
+    const { state } = location;
     const { selectedOption, toHome } = this.state;
+    // console.log(query);
+    // if (state.from) {
+    //   console.log(state.from);
+    //   // return <Redirect to={state.from.page} />;
+    // }
     if (toHome) {
       return <Redirect to="/home" />;
     }
@@ -61,7 +73,7 @@ class Signin extends React.Component {
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users }, { location }) {
   return {
     persons: Object.keys(users).map((user) => {
       return {
@@ -73,6 +85,7 @@ function mapStateToProps({ users }) {
       };
     }),
     users,
+    location,
   };
 }
 

@@ -6,7 +6,7 @@ class Board extends React.Component {
   render() {
     const { authedUser, users } = this.props;
     if (authedUser === null) {
-      return <NotFound />;
+      return <NotFound page={this.props.history.location.pathname} />;
     }
     let arrUsers = Object.keys(users);
     let sortedUsers = arrUsers.sort((a, b) => {

@@ -28,7 +28,7 @@ class NewQuestion extends React.Component {
   render() {
     const { authedUser } = this.props;
     if (authedUser === null) {
-      return <NotFound />;
+      return <NotFound page={this.props.history.location.pathname} />;
     }
     return (
       <>

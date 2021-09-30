@@ -27,7 +27,7 @@ class QuestionPage extends Component {
   render() {
     const { questions, users, authedUser } = this.props;
     if (authedUser === null) {
-      return <NotFound />;
+      return <NotFound page={this.props.history.location.pathname} />;
     }
     const { question_id } = this.props.match.params;
     let oneVotes = questions[question_id].optionOne.votes.length;

@@ -19,7 +19,7 @@ class Home extends React.Component {
     const { authedUser, questions } = this.props;
     const { activeTab } = this.state;
     if (authedUser === null) {
-      return <NotFound />;
+      return <NotFound page={ this.props.history.location.pathname }/>;
     }
     const { selectedOption } = authedUser;
     let answer = [];
@@ -47,7 +47,7 @@ class Home extends React.Component {
             <li
               key={label}
               onClick={() => this.handleClickTab(label)}
-              id={activeTab === label && "active"}
+              id={activeTab === label ? "active": ""}
             >
               {label}
             </li>
