@@ -31,7 +31,8 @@ class Nav extends React.Component {
     }
     return (
       <nav className="nav">
-        <div className="inside">
+        <div className="
+        ">
           <ul>
             <li
               className="tag"

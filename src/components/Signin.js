@@ -15,7 +15,7 @@ class Signin extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { persons, location } = this.props;
+    const { location } = this.props;
     const { state } = location;
     const { selectedOption } = this.state;
     if (selectedOption !== null) {
@@ -23,21 +23,14 @@ class Signin extends React.Component {
         toHome: true,
       }));
       this.props.dispatch(setAuthedUser({ selectedOption }));
-      if (state.from) {
+      if (state && state.from) {
         this.props.history.push(state.from.page)
       }
     }
   };
   render() {
-    const { persons, location } = this.props;
-    console.log(location);
-    const { state } = location;
+    const { persons } = this.props;
     const { selectedOption, toHome } = this.state;
-    // console.log(query);
-    // if (state.from) {
-    //   console.log(state.from);
-    //   // return <Redirect to={state.from.page} />;
-    // }
     if (toHome) {
       return <Redirect to="/home" />;
     }
